@@ -11,16 +11,20 @@
 
 nav:
   # Navigation bar logo image
-  logo:
+  logo: /img/nav-logo.png
   display_title: true
   # Whether to fix navigation bar
-  fixed: false
+  fixed: true
 
 menu:
-  # Home: / || fas fa-home
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
+  Home: / || fas fa-home
+  Archives: /archives/ || fas fa-archive
+  Categories: /categories/ || fas fa-folder
+  About: /about/ || fas fa-user
+  # Multi-level example
+  More||fas fa-ellipsis-h:
+    Music: /music/ || fas fa-music
+    Movie: /movies/ || fas fa-video
 
 # --------------------------------------
 # Code Blocks Settings
@@ -29,10 +33,10 @@ menu:
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
   theme: light
-  macStyle: true
+  macStyle: false
   # Code block height limit (unit: px)
-  height_limit: 400
-  word_wrap: true
+  height_limit: false
+  word_wrap: false
 
   # Toolbar
   copy: true
@@ -45,33 +49,32 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
+  fab fa-github: https://github.com/WhiteMasky || Github || '#24292e'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /img/favicon.png
+favicon: /img/favicon/favicon.ico
 
 avatar:
-  img: /img/butterfly-icon.png
-  effect: false
+  img: /img/avatar.png
+  effect: true
 
 # Disable all banner images
 disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img: /img/default-banner.jpg
+default_top_img:
 
 # The banner image of index page
-index_img: /img/home-banner.jpg
+index_img:
 
 # The banner image of archive page
-archive_img: /img/archive-banner.jpg
+archive_img:
 
 # Note: tag page, not tags page
-tag_img: /img/tag-banner.jpg
+tag_img:
 
 # The banner image of tag page, you can set the banner image for each tag
 # Format:
@@ -79,7 +82,7 @@ tag_img: /img/tag-banner.jpg
 tag_per_img:
 
 # Note: category page, not categories page
-category_img: /img/category-banner.jpg
+category_img:
 
 # The banner image of category page, you can set the banner image for each category
 # Format:
@@ -91,7 +94,7 @@ footer_img: false
 
 # Website Background
 # Can set it to color or image url
-background: /img/background.jpg  # Or use a color: "#f5f5f5"
+background:
 
 cover:
   # Disable the cover or not
@@ -100,14 +103,12 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    - /img/cover-blockchain.jpg
-    - /img/cover-goldstock.jpg
-    - /img/cover-cloudcomputing.jpg
+    # - xxx.jpg
 
 # Replace Broken Images
 error_img:
-  flink: /img/friend_404.jpg
-  post_page: /img/post_404.jpg
+  flink: /img/friend_404.gif
+  post_page: /img/404.jpg
 
 # A simple 404 page
 error_404:
@@ -143,13 +144,13 @@ post_meta:
 # The top_img settings of home page
 # default: top img - full screen, site info - middle
 # The position of site info, eg: 300px/300em/300rem/10%
-index_site_info_top: 200px
+index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
-index_top_img_height: 400px
+index_top_img_height:
 
 # The subtitle on homepage
 subtitle:
-  enable: true
+  enable: false
   # Typewriter Effect
   effect: true
   # Customize typed.js
@@ -165,12 +166,6 @@ subtitle:
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
-    - "print("Hello, World!")"
-    - "System.out.println("Hello, World!");"
-    - "console.log("Hello, World!");"
-    - "std::cout << "Hello, World!" << std::endl;"
-    - "fmt.Println("Hello, World!")"
-    - "println!("Hello, World!");"
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -190,7 +185,7 @@ index_layout: 3
 index_post_content:
   method: 3
   # If you set method to 2 or 3, the length need to config
-  length: 200
+  length: 500
 
 # --------------------------------------
 # Post Settings
@@ -214,21 +209,23 @@ post_copyright:
 
 # Sponsor/reward
 reward:
-  enable: true
-  text: "Buy me a coffee"
+  enable: false
+  text:
   QR_code:
-    - img: /img/wechat.jpg
-      # link:
-      text: wechat
-    - img: /img/alipay.jpg
-      # link:
-      text: alipay
+    # - img: /img/wechat.jpg
+    #   link:
+    #   text: wechat
+    # - img: /img/alipay.jpg
+    #   link:
+    #   text: alipay
 
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: true
-  url: https://github.com/WhiteMasky/WhiteMasky.github.io/edit/main/source/
+  enable: false
+  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
+  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
+  url:
 
 # Related Articles
 related_post:
@@ -246,12 +243,15 @@ post_pagination: 1
 
 # Displays outdated notice for a post
 noticeOutdate:
-  enable: true
+  enable: false
+  # Style: simple / flat
   style: flat
+  # When will it be shown
   limit_day: 365
+  # Position: top / bottom
   position: top
-  message_prev: "距离上次更新已过去"
-  message_next: "天，内容可能已过时。"
+  message_prev: It has been
+  message_next: days since the last update, the content of the article may be outdated.
 
 # --------------------------------------
 # Footer Settings
@@ -265,7 +265,7 @@ footer:
   copyright:
     enable: true
     version: true
-  custom_text: "© 2025 WM's Blog. All rights reserved."
+  custom_text:
 
 # --------------------------------------
 # Aside Settings
@@ -453,7 +453,7 @@ busuanzi:
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
-  use: mathjax
+  use:
   per_page: true
   hide_scrollbar: false
 
@@ -705,12 +705,6 @@ umami_analytics:
     # Umami Cloud (API key) / self-hosted Umami (token)
     token:
 
-# https://www.googletagmanager.com/
-google_tag_manager:
-  tag_id: 
-  # optional
-  domain: 
-
 # --------------------------------------
 # Advertisement
 # --------------------------------------
@@ -814,15 +808,15 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work
 font:
-  global_font_size: 16px
-  code_font_size: 14px
-  font_family: "'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif"
-  code_font_family: "'Fira Mono', 'Consolas', monospace"
+  global_font_size:
+  code_font_size:
+  font_family:
+  code_font_family:
 
 # Font settings for the site title and site subtitle
 blog_title_font:
-  font_link: "https://fonts.googleapis.com/css?family=Pacifico"
-  font_family: "'Pacifico', cursive"
+  font_link:
+  font_family:
 
 # The setting of divider icon
 hr_icon:
@@ -921,7 +915,7 @@ series:
 # ABCJS - The ABC Music Notation Plugin
 # https://github.com/paulrosen/abcjs
 abcjs:
-  enable: true
+  enable: false
   per_page: true
 
 # Mermaid
@@ -981,7 +975,7 @@ pjax:
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: true
+  enable: false
   per_page: true
 
 # Snackbar - Toast Notification
