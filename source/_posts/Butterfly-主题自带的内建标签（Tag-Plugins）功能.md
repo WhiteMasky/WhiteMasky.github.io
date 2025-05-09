@@ -61,12 +61,6 @@ updated: 2025-05-10 02:28:26
 
 这个会被渲染成一个**绿色卡片框 + 火箭图标**，里面包含文档的导航链接。链接通过 `post_link` 插件生成，自动指向你本地的文章。
 
-{% note green 'fas fa-rocket' %}
-
-{% post_link hello-world '起始页' %}
-...
-{% endnote %}
-
 ------
 
 ### ✅ 可用颜色
