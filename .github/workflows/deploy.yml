@@ -30,7 +30,9 @@ jobs:
         run: npm ci
 
       - name: Generate static site
-        run: npx hexo generate
+        run: |
+          npx hexo clean
+          npx hexo generate
 
       - name: Sync built site to repo root
         run: |
