@@ -36,8 +36,7 @@ jobs:
 
       - name: Sync built site to repo root
         run: |
-          rsync -av --delete public/ . \
-            --exclude .git --exclude .github
+          rsync -av --delete ./public/ ../WhiteMasky.github.io/
 
       - name: Commit & Push to main
         run: |
