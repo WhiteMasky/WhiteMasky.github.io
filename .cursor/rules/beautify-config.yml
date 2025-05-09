@@ -1,0 +1,17 @@
+# 文件：.cursor/rules/beautify-config.yml
+version: "1.0"
+rules:
+  - name: "基于 Butterfly 主题自动美化页面"
+    description: |
+      保持 Butterfly 主题源码不变，
+      根据当前项目根目录下的 _config.butterfly.yml 配置，
+      为页面美化生成必要的配置修改建议。
+    pattern: "**/_config.butterfly.yml"
+    template: |
+      请基于现有的 Butterfly 主题配置，输出需要**新增**或**调整**的 YAML 配置段落，包括但不限于：
+      - 主色调、辅助色调、字体系列、基础字号
+      - 布局（侧边栏宽度、内容区间距等）
+      - 代码块、高亮样式、表格边框与背景色
+      - 页脚、顶部菜单、链接悬停效果
+      输出格式只包含要变更或新增的键值对（YAML 片段），其余原有配置保持不变。
+      
