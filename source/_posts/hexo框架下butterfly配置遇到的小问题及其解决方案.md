@@ -78,7 +78,7 @@ include:          # <-- put it here (2 spaces indent)
 
 在`.github/workflows/pages.yml`的配置文件中添加自动更新的工作流（可能会造成部署时间的延长）
 
-```yam
+```yaml
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
