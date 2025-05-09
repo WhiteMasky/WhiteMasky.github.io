@@ -1,32 +1,35 @@
 name: build & deploy Hexo
+
 on:
   push:
     branches: [ main ]
 
 permissions:
-  contents: write       # 允许用 GITHUB_TOKEN 推送
+  contents: write  # 允许使用 GITHUB_TOKEN 推送
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout source
+      - name: Checkout (incl. submodules)
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          submodules: recursive
           persist-credentials: true
+
+      - name: Update submodules to latest
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive --remote
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      - name: Update Butterfly theme
-        run: |
-          rm -rf themes/butterfly
-          git clone --depth=1 https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
-
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
       - name: Generate static site
@@ -42,5 +45,5 @@ jobs:
           git config user.name  "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add .
-          git commit -m "Deploy site" || echo "No changes to commit"
+          git commit -m "Deploy site" || echo "No changes to deploy"
           git push origin main
