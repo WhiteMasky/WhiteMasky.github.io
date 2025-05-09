@@ -97,3 +97,4 @@ include:          # <-- put it here (2 spaces indent)
           node-version: "20"
 ```
 
+此处由于自动更新主题每次都会重新拉源码，所以对于主题的定制不能继续在`themes/butterfly/_config.yml`里了，不然每次更新主题的时候都会把自定义的配置覆盖掉。一般来说Hexo 会先加载你项目根目录下的 `_config.yml`，然后再加载根目录下的 `_config.butterfly.yml` 并覆盖默认值，因此需要在根目录下创建属性与`themes/butterfly/_config.yml` 完全一致的`_config.butterfly.yml` 并在这里进行修改。

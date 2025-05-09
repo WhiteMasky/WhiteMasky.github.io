@@ -29,10 +29,10 @@ menu:
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
   theme: light
-  macStyle: false
+  macStyle: true
   # Code block height limit (unit: px)
-  height_limit: false
-  word_wrap: false
+  height_limit: 400
+  word_wrap: true
 
   # Toolbar
   copy: true
@@ -62,16 +62,16 @@ avatar:
 disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img:
+default_top_img: /img/default-banner.jpg
 
 # The banner image of index page
-index_img:
+index_img: /img/home-banner.jpg
 
 # The banner image of archive page
-archive_img:
+archive_img: /img/archive-banner.jpg
 
 # Note: tag page, not tags page
-tag_img:
+tag_img: /img/tag-banner.jpg
 
 # The banner image of tag page, you can set the banner image for each tag
 # Format:
@@ -79,7 +79,7 @@ tag_img:
 tag_per_img:
 
 # Note: category page, not categories page
-category_img:
+category_img: /img/category-banner.jpg
 
 # The banner image of category page, you can set the banner image for each category
 # Format:
@@ -91,7 +91,7 @@ footer_img: false
 
 # Website Background
 # Can set it to color or image url
-background:
+background: /img/background.jpg  # Or use a color: "#f5f5f5"
 
 cover:
   # Disable the cover or not
@@ -100,16 +100,18 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    # - xxx.jpg
+    - /img/cover-blockchain.jpg
+    - /img/cover-goldstock.jpg
+    - /img/cover-cloudcomputing.jpg
 
 # Replace Broken Images
 error_img:
-  flink: /img/friend_404.gif
-  post_page: /img/404.jpg
+  flink: /img/friend_404.jpg
+  post_page: /img/post_404.jpg
 
 # A simple 404 page
 error_404:
-  enable: false
+  enable: true
   subtitle: 'Page Not Found'
   background: /img/error-page.png
 
@@ -141,13 +143,13 @@ post_meta:
 # The top_img settings of home page
 # default: top img - full screen, site info - middle
 # The position of site info, eg: 300px/300em/300rem/10%
-index_site_info_top:
+index_site_info_top: 200px
 # The height of top_img, eg: 300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 400px
 
 # The subtitle on homepage
 subtitle:
-  enable: false
+  enable: true
   # Typewriter Effect
   effect: true
   # Customize typed.js
@@ -163,6 +165,12 @@ subtitle:
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
+    - "print("Hello, World!")"
+    - "System.out.println("Hello, World!");"
+    - "console.log("Hello, World!");"
+    - "std::cout << "Hello, World!" << std::endl;"
+    - "fmt.Println("Hello, World!")"
+    - "println!("Hello, World!");"
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -182,7 +190,7 @@ index_layout: 3
 index_post_content:
   method: 3
   # If you set method to 2 or 3, the length need to config
-  length: 500
+  length: 200
 
 # --------------------------------------
 # Post Settings
@@ -206,23 +214,21 @@ post_copyright:
 
 # Sponsor/reward
 reward:
-  enable: false
-  text:
+  enable: true
+  text: "Buy me a coffee"
   QR_code:
-    # - img: /img/wechat.jpg
-    #   link:
-    #   text: wechat
-    # - img: /img/alipay.jpg
-    #   link:
-    #   text: alipay
+    - img: /img/wechat.jpg
+      # link:
+      text: wechat
+    - img: /img/alipay.jpg
+      # link:
+      text: alipay
 
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: false
-  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
-  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
+  enable: true
+  url: https://github.com/WhiteMasky/WhiteMasky.github.io/edit/main/source/
 
 # Related Articles
 related_post:
@@ -240,15 +246,12 @@ post_pagination: 1
 
 # Displays outdated notice for a post
 noticeOutdate:
-  enable: false
-  # Style: simple / flat
+  enable: true
   style: flat
-  # When will it be shown
   limit_day: 365
-  # Position: top / bottom
   position: top
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: "距离上次更新已过去"
+  message_next: "天，内容可能已过时。"
 
 # --------------------------------------
 # Footer Settings
@@ -262,7 +265,7 @@ footer:
   copyright:
     enable: true
     version: true
-  custom_text:
+  custom_text: "© 2025 WM's Blog. All rights reserved."
 
 # --------------------------------------
 # Aside Settings
@@ -450,7 +453,7 @@ busuanzi:
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
-  use:
+  use: mathjax
   per_page: true
   hide_scrollbar: false
 
@@ -811,15 +814,15 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work
 font:
-  global_font_size:
-  code_font_size:
-  font_family:
-  code_font_family:
+  global_font_size: 16px
+  code_font_size: 14px
+  font_family: "'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif"
+  code_font_family: "'Fira Mono', 'Consolas', monospace"
 
 # Font settings for the site title and site subtitle
 blog_title_font:
-  font_link:
-  font_family:
+  font_link: "https://fonts.googleapis.com/css?family=Pacifico"
+  font_family: "'Pacifico', cursive"
 
 # The setting of divider icon
 hr_icon:
@@ -918,7 +921,7 @@ series:
 # ABCJS - The ABC Music Notation Plugin
 # https://github.com/paulrosen/abcjs
 abcjs:
-  enable: false
+  enable: true
   per_page: true
 
 # Mermaid
@@ -978,7 +981,7 @@ pjax:
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: false
+  enable: true
   per_page: true
 
 # Snackbar - Toast Notification
