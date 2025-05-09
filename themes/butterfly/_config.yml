@@ -11,20 +11,16 @@
 
 nav:
   # Navigation bar logo image
-  logo: /img/nav-logo.png
+  logo:
   display_title: true
   # Whether to fix navigation bar
-  fixed: true
+  fixed: false
 
 menu:
-  Home: / || fas fa-home
-  Archives: /archives/ || fas fa-archive
-  Categories: /categories/ || fas fa-folder
-  About: /about/ || fas fa-user
-  # Multi-level example
-  More||fas fa-ellipsis-h:
-    Music: /music/ || fas fa-music
-    Movie: /movies/ || fas fa-video
+  # Home: / || fas fa-home
+  # List||fas fa-list:
+  #   Music: /music/ || fas fa-music
+  #   Movie: /movies/ || fas fa-video
 
 # --------------------------------------
 # Code Blocks Settings
@@ -49,17 +45,18 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  fab fa-github: https://github.com/WhiteMasky || Github || '#24292e'
+  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
+  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /img/favicon/favicon.ico
+favicon: /img/favicon.png
 
 avatar:
-  img: /img/avatar.png
-  effect: true
+  img: /img/butterfly-icon.png
+  effect: false
 
 # Disable all banner images
 disable_top_img: false
@@ -112,7 +109,7 @@ error_img:
 
 # A simple 404 page
 error_404:
-  enable: true
+  enable: false
   subtitle: 'Page Not Found'
   background: /img/error-page.png
 
@@ -704,6 +701,12 @@ umami_analytics:
     page_pv: false
     # Umami Cloud (API key) / self-hosted Umami (token)
     token:
+
+# https://www.googletagmanager.com/
+google_tag_manager:
+  tag_id: 
+  # optional
+  domain: 
 
 # --------------------------------------
 # Advertisement
