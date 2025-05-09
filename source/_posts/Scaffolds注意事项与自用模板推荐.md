@@ -26,3 +26,15 @@ date: 2025-05-10 02:30:18
 updated: 2025-05-10 02:30:18
 ---
 
+### scaffolds 的基本格式
+
+```markdown
+---
+<content1>
+<content2>
+<content3>
+---
+# 不能多或者少 ---
+# 否则报错 YAMLException: end of the stream or a document separator is expected (2:6)
+```
+
