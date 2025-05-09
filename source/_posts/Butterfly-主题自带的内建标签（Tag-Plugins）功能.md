@@ -63,7 +63,7 @@ updated: 2025-05-10 02:28:26
 
 {% note green 'fas fa-rocket' %}
 
-{% post_link <URL:markdown文件名(无需扩展名)> '[显示的名称]' %}
+{% post_link hello-world '起始页' %}
 ...
 {% endnote %}
 
