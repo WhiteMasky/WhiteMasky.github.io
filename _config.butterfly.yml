@@ -165,12 +165,12 @@ subtitle:
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
   sub:
-    - "print("Hello, World!")"
-    - "System.out.println("Hello, World!");"
-    - "console.log("Hello, World!");"
-    - "std::cout << "Hello, World!" << std::endl;"
-    - "fmt.Println("Hello, World!")"
-    - "println!("Hello, World!");"
+    - "print(\"Hello, World!\")"
+    - "System.out.println(\"Hello, World!\");"
+    - "console.log(\"Hello, World!\");"
+    - "std::cout << \"Hello, World!\" << std::endl;"
+    - "fmt.Println(\"Hello, World!\")"
+    - "println!(\"Hello, World!\");"
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
