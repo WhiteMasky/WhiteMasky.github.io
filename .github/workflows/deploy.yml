@@ -1,8 +1,10 @@
 name: build & deploy Hexo
-
 on:
   push:
     branches: [ main ]
+
+permissions:
+  contents: write       # 允许用 GITHUB_TOKEN 推送
 
 jobs:
   build-deploy:
@@ -10,13 +12,15 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      # ← NEW STEP: fetch the very latest Butterfly
       - name: Update Butterfly theme
         run: |
           rm -rf themes/butterfly
@@ -28,10 +32,15 @@ jobs:
       - name: Generate static site
         run: npx hexo generate
 
-      - name: Deploy to GitHub Pages
-        # 同名则不需要
-        # uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: main
+      - name: Sync built site to repo root
+        run: |
+          rsync -av --delete public/ . \
+            --exclude .git --exclude .github
+
+      - name: Commit & Push to main
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add .
+          git commit -m "Deploy site" || echo "No changes to commit"
+          git push origin main
