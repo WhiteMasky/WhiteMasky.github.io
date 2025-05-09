@@ -89,7 +89,8 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
-include:
+include:          # <-- put it here (2 spaces indent)
+  - .nojekyll
 exclude:
 ignore:
 
@@ -103,5 +104,3 @@ theme: butterfly
 deploy:
   type: ''
 
-include:          # <-- put it here (2 spaces indent)
-  - .nojekyll
