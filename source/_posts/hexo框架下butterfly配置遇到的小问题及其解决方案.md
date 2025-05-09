@@ -66,3 +66,11 @@ B. 源代码和 Pages 站点托管在同一个仓库，可参考[官方文档](h
 #### Hexo部署时按照默认的Jekyll的工作流运行
 
 > Error:  Logging at level: debug Configuration file: /github/workspace/./_config.yml Theme: butterfly github-pages 228 | Error: The butterfly theme could not be found
+
+先在根目录下添加名为`.nojekyll` 的零字节空文件，再在`_config.yml` 里的include属性下添加
+
+```yaml
+include:          # <-- put it here (2 spaces indent)
+  - .nojekyll
+```
+

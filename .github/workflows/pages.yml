@@ -14,6 +14,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
+      - name: Update Butterfly theme
+        run: |
+          # 删除本地老主题
+          rm -rf themes/butterfly
+          # 克隆最新版
+          git clone --depth=1 https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
