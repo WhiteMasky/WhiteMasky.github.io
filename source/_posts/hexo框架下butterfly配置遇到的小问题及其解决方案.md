@@ -74,3 +74,26 @@ include:          # <-- put it here (2 spaces indent)
   - .nojekyll
 ```
 
+#### 添加主题自动更新的workflow
+
+在`.github/workflows/pages.yml`的配置文件中添加自动更新的工作流（可能会造成部署时间的延长）
+
+```yam
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: recursive
+---------------------------------
+      - name: Update Butterfly theme
+        run: |
+          # 删除本地老主题
+          rm -rf themes/butterfly
+          # 克隆最新版
+          git clone --depth=1 https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+----------------------------------
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+```
+
