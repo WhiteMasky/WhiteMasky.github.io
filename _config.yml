@@ -3,17 +3,40 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: White Masky
+subtitle: 'Valar Morghulis. Behind Every Mask, a Story'
+description: 'Exploring identity, shadows, and silent thoughts. A blog behind the mask.'
 keywords:
-author: John Doe
+  - White Masky
+  - identity
+  - philosophy
+  - solitude
+  - creative writing
+  - tech thoughts
+  - cloud computing
+  - blockchain
+  - web3
+  - crypto
+  - nft
+  - ai
+  - machine learning
+  - data science
+  - data analysis
+  - software engineering
+  - DevOps
+  - cloud native
+  - cloud security
+  - cloud governance
+  - cloud operations
+  - cloud architecture
+  
+author: White Masky
 language: en
-timezone: ''
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://whitemasky.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
