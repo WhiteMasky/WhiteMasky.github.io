@@ -17,9 +17,9 @@ highlight_shrink: false
 aside: true
 abcjs: false
 noticeOutdate: false
+abbrlink: 66563d1c
 date: 2025-05-10 02:30:18
 updated: 2025-05-10 02:30:18
-abbrlink:4d7ec701
 ---
 
 ### scaffolds 的基本格式

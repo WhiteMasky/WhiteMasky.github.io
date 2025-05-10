@@ -1,9 +1,9 @@
 ---
 title: hexo框架下butterfly配置遇到的小问题及其解决方案
+cover: false
+abbrlink: 8750d219
 date: 2025-05-09 17:23:05
 tags:
-cover: false
-abbrlink:9597bec6
 ---
 
 ### hexo建站及使用Butterfly主题的Quick Start
