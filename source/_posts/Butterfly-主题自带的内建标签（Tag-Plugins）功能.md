@@ -10,11 +10,6 @@ cover: false
 toc: true
 toc_number: false
 toc_style_simple: false
-copyright: false
-copyright_author: ''
-copyright_author_href: ''
-copyright_url: ''
-copyright_info: ''
 mathjax: false
 katex: false
 aplayer: false
@@ -32,7 +27,7 @@ updated: 2025-05-10 02:28:26
 
 
 
-------   
+------
 
 
 ### ✅ `note` 语法结构说明：
@@ -48,7 +43,7 @@ updated: 2025-05-10 02:28:26
 | 参数                          | 含义                                                         |
 | ----------------------------- | ------------------------------------------------------------ |
 | 颜色（如 green、orange、red） | 提示框的主题色                                               |
-| 图标类名                      | 使用 Font Awesome 图标，如 `fas fa-rocket`、`fas fa-magic` 等 |   
+| 图标类名                      | 使用 Font Awesome 图标，如 `fas fa-rocket`、`fas fa-magic` 等 |
 
 
 ### ✅ 示例解释：
@@ -140,7 +135,7 @@ Hexo 的 Butterfly 主题提供了丰富的内建标签插件（Tag Plugins）�
 | ✅ 图表       | `{% mermaid %}...{% endmermaid %}`                           | 使用 Mermaid 插图（流程图、时序图等）     |
 | ✅ 卡片引用   | `{% link [url] [title] [desc] [img] %}`                      | 生成外链卡片预览                          |
 | ✅ 文章目录   | `{% toc %}`                                                  | 手动插入文章目录（可选）                  |
-| ✅ 站点标签云 | `{% tagcloud %}`                                             | 显示标签云（可在页面中插入）              |     
+| ✅ 站点标签云 | `{% tagcloud %}`                                             | 显示标签云（可在页面中插入）              |
 
 
 
