@@ -19,6 +19,7 @@ abcjs: false
 noticeOutdate: false
 date: 2025-05-10 02:30:18
 updated: 2025-05-10 02:30:18
+abbrlink:4d7ec701
 ---
 
 ### scaffolds 的基本格式
