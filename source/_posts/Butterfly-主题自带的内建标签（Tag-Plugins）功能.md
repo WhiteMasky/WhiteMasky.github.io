@@ -28,7 +28,7 @@ updated: 2025-05-10 02:28:26
 
 > 本文基于GPT-4o生成的内容微修
 
-使用的是 Hexo + Butterfly 主题时，可以直接这样使用**Butterfly 主题自带的内建标签（Tag Plugins）功能**，比如 `{% note ... %}` 是，它用自定义标签来生成视觉提示块在文章中插入样式良好的“提示框”组件，像绿色信息框、橙色警告框等。
+使用的是 Hexo + Butterfly 主题时，可以直接这样使用**Butterfly 主题自带的内建标签（Tag Plugins）功能**，比如 `{% note ... %}` 是，它用自定义标签来生成视觉提示块在文章中插入样式良好的“提示框”组件，像绿色信息框、橙色警告框等。具体可以参考[标签外挂](https://butterfly.js.org/posts/ceeb73f/)
 
 
 
@@ -51,7 +51,6 @@ updated: 2025-05-10 02:28:26
 | 颜色（如 green、orange、red） | 提示框的主题色                                               |
 | 图标类名                      | 使用 Font Awesome 图标，如 `fas fa-rocket`、`fas fa-magic` 等 |
 
-------
 
 
 
@@ -68,8 +67,6 @@ updated: 2025-05-10 02:28:26
 这个会被渲染成一个**绿色卡片框 + 火箭图标**，里面包含文档的导航链接。链接通过 `post_link` 插件生成，自动指向你本地的文章。
 
 
-
-------
 
 
 
@@ -94,7 +91,6 @@ Butterfly 默认支持以下几种颜色：
 
 
 
-------
 
 
 
@@ -108,7 +104,6 @@ Butterfly 使用的是 [Font Awesome 5](https://fontawesome.com/icons?d=gallery&
 'fas fa-exclamation-triangle'
 ```
 
-------
 
 
 
@@ -127,15 +122,9 @@ npm install hexo-renderer-markdown-it --save
 
 
 
-------
-
-
 
 Hexo 的 Butterfly 主题提供了丰富的内建标签插件（Tag Plugins）和功能组件，能让你在 Markdown 中方便地插入各种美观、实用的元素，**无需写 HTML**。主要是基于**Nunjucks**的写法（实际上关于渲染的写法本人仍然在探索中）。下面是一份整理清单，涵盖了常用的功能类型及语法：
 
-
-
-------
 
 
 
@@ -157,8 +146,6 @@ Hexo 的 Butterfly 主题提供了丰富的内建标签插件（Tag Plugins）�
 | ✅ 站点标签云 | `{% tagcloud %}`                                             | 显示标签云（可在页面中插入）              |
 
 
-
-------
 
 
 

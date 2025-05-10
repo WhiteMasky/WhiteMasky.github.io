@@ -2,6 +2,7 @@
 title: hexo框架下butterfly配置遇到的小问题及其解决方案
 date: 2025-05-09 17:23:05
 tags:
+cover: false
 ---
 
 ### hexo建站及使用Butterfly主题的Quick Start
