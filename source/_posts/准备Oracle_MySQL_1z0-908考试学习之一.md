@@ -1,5 +1,5 @@
 ---
-title: 准备Oracle MySQL 1z0-908考试学习之一
+title: 准备Oracle_MySQL_1z0-908考试学习之一
 tags: []
 categories: []
 keywords: []
