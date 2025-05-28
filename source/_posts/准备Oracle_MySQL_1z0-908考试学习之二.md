@@ -26,7 +26,7 @@ abbrlink:
 - Backup & Restore
 - Performance Tuning
 - Replication & High Availability
-- JSON
+- JSON & New Features
 
 
 
@@ -256,6 +256,8 @@ InnoDB使用B+树 O(Logn)
 
 
 
+`SHOW INDEX FROM users;` 的返回结果也需要了解看懂一下
+
 ### Transactions & Locks
 
 ACID Atomic Consistency Isolation Durability
@@ -302,9 +304,152 @@ InnoDB通过MVCC避免了幻读，使用Gap Lock
 
 
 
+### Users & Privileges
+
+MySQL 账号格式
+
+> '用户名'@'主机名'
+
+user: 登录用户名
+
+host: 哪个主机允许连接，localhost，%， IP
+
+关于这一部分的SQL内容大多都在关系型数据库里学过应该
 
 
-TRUNCATE
 
-DELETE
+### Backup & Restore
+
+| 备份形式        | 说明                       | 是否影响数据库运行 |
+| --------------- | -------------------------- | ------------------ |
+| Logical Backup  | 导出SQL语句形式的数据      | 是，有时会锁表     |
+| Physical Backup | 复制物理文件，数据页，日志 | 否，可热备         |
+
+
+
+`mysqldump` 是MySQL自带的命令行备份工具，用于生成一份含SQL命令的文本文件，可以直接用于恢复。
+
+`mysqlpump` 支持并发导出表。
+
+
+
+物理备份一般是停止MySQL服务后直接复制到数据库目录，在Linux中通常是`/var/lib/mysql`，企业有xtrabackup的热备方案。
+
+
+
+**Point-in-time Recovery** 
+
+mysqldump全备份 👉 --log-bin记录变更日志 👉 mysqlbinlog重放日志
+
+
+
+### Performance Tuning
+
+
+
+EXPLAIN分析查询计划
+
+
+
+避免慢查询写法，可以用`slow_query_log = 1`(在my.cnf里开启慢查询日志)
+
+- SELECT *
+- %abc LIKE
+- OR多条件
+- 函数包裹字段
+
+
+
+| 参数                    | 作用               |
+| ----------------------- | ------------------ |
+| innodb_buffer_pool_size | 内存缓存中的数据页 |
+| query_cache_size        | 已废弃的查询缓存   |
+| max_connections         | 最大连接数         |
+| thread_cache_size       | 线程重用池         |
+| tmp_table_size          | 内存临时表大小     |
+| sort_buffer_size        | 排序缓冲区大小     |
+
+
+
+
+
+### Replication & HA
+
+企业架构的核心，容灾能力和系统扩展性。
+
+Master 异步复制到 Slave
+
+binlog ←←←←←←relay log
+
+- 读写分离：主库负责写，从库负责读；
+- 容灾备份：万一主库崩溃了从库可以接上
+- 分布式部署：地理分布式数据同步
+- 版本迁移：老版本迁移不影响主库
+
+
+
+**How replication works**
+
+> Master将transaction写入binlog，从库通过I/O Thread读取主库的binlog，写入relay log，slave的SQL thread 读取relay log并执行相同的操作
+
+**How to set up**
+
+> 1. 配置主库my.cnf，然后重启MySQL
+>
+> 2. 主库创建复制用户
+>
+> 3. 查看主库位置
+>
+> 4. 配置从库my.cnf，然后运行命令让从库定位到主库相同位置后，启用从库
+>
+>    验证是否复制成功 SHOW SLAVE STATUS\G 可以看到 `Slave_IO_Running`和`Slave_SQL_Running` 都 Yes
+
+
+
+GTID = Global Transaction ID，全局事务标识符，每个事务都有一个唯一 ID，可跨库唯一标识
+
+配置时主从的my.cnf都要加
+
+- gtid_mode = ON
+- enforce-gtid-consistency = ON
+
+而与此同时 `MASTER_LOG_FILE` 和 `POSITION` 就不再需要了
+
+
+
+| Type             | Comment                                                   |
+| ---------------- | --------------------------------------------------------- |
+| asynchronous     | 主库提交后立刻返回，不等待从库，default                   |
+| semi-synchronous | 主库需要等待至少一个从库ACK之后才提交，可以升级提升可靠性 |
+| synchronous      | 主从全部完成，性能差不推荐                                |
+
+
+
+| 类型     | 结构                       | 用途                     |
+| -------- | -------------------------- | ------------------------ |
+| 单主多从 | 1 Master + N Slaves        | 读写分离                 |
+| 主主复制 | Dual Masters               | 双活热备，需要防止写冲突 |
+| 多级复制 | Master → Slave 1 → Slave 2 | 地理分布优化             |
+
+
+
+HA方案
+
+- MySQL High Availability 自动主从切换，classic
+- Group Replication 内置组复制
+- MySQL InnoDB Cluster 官方全套HA，多主复制搭配Router使用
+
+
+
+### JSON & New Features
+
+JSON支持建立虚拟列索引
+
+虚拟列（这个中文译名不好哇 generated columns一看就知道是根据别的列自动算出来的而非手动）
+
+表分区（物理分一下提升性能）
+
+空间类型 表示地理位置的数据
+
+窗口函数 不分组的情况下进行聚合运算
 
