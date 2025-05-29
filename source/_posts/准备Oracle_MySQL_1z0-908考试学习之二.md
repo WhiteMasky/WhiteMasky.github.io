@@ -388,6 +388,14 @@ binlog ←←←←←←relay log
 
 
 
+Source            Replica
+
+binlog  → I/O Thread → relay log
+
+​                                  ↓
+
+​                              SQL Thread
+
 **How replication works**
 
 > Master将transaction写入binlog，从库通过I/O Thread读取主库的binlog，写入relay log，slave的SQL thread 读取relay log并执行相同的操作
